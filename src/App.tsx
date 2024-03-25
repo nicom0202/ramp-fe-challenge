@@ -64,7 +64,7 @@ export function App() {
             if (newValue === null) {
               return
             }
-            if (newValue == EMPTY_EMPLOYEE){
+            if (newValue === EMPTY_EMPLOYEE){
               await loadAllTransactions()  //Load all transactions 
             }
             else{
@@ -79,7 +79,7 @@ export function App() {
         <div className="RampGrid">
           <Transactions transactions={transactions} />
 
-          {transactions !== null && (
+          {transactions !== null && paginatedTransactions && paginatedTransactions.nextPage !== null && ( // if no more transactions, don't show view more button
             <button
               className="RampButton"
               disabled={paginatedTransactionsUtils.loading}
