@@ -39,7 +39,11 @@ export function App() {
 
   useEffect(() => {
     if (employees === null && !employeeUtils.loading) {
+      setIsLoading(true)  // Set the loading to true when employees requests start
       loadAllTransactions()
+    }
+    else if (employees !== null && employeeUtils.loading){
+      setIsLoading(false)   // Reset loading state when employees request is complete
     }
   }, [employeeUtils.loading, employees, loadAllTransactions])
 
